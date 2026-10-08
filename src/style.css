@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-techflow-blue: #2456f5;
+    --color-techflow-blueDark: #0c1f5c;
+    --color-techflow-blueSky: #6c93ff;
+    --color-night: #081330;
+    --color-mist: #e8eeff;
+    --color-cyan-data: #12b5d6;
+    --color-sucess: #16b27a;
+    --color-attention: #f2a93b;
+    --color-error: #e5484d;
+    --color-violet: #7a5af8;
+    --color-paint: #0b1020;
+}
