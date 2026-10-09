@@ -62,13 +62,13 @@
           </svg>
         </button>
       </div>
-      <button type="button" aria-label="Adicionar projeto"
-        class="inline-flex items-center justify-center rounded-full bg-techflow-blueDark p-3 text-mist transition-colors hover:opacity-90 dark:bg-techflow-blueSky dark:text-night sm:rounded-3xl sm:px-3 sm:py-2">
+      <button id="abrirModalNew" type="button" aria-label="Adicionar projeto"
+        class="inline-flex items-center justify-center rounded-full font-medium bg-techflow-blueDark p-3 text-mist transition-colors hover:opacity-90 dark:bg-techflow-blueSky dark:text-night sm:rounded-3xl sm:px-3 sm:py-2">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="size-5 sm:size-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
         </svg>
-        <span class="hidden sm:inline">Adicionar Projeto</span>
+        <span class="hidden sm:inline">Novo Projeto</span>
       </button>
 
     </div>
@@ -105,7 +105,7 @@
             Dashboard</a>
         </li>
         <li>
-          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-400 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-500/80 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -115,7 +115,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-400 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-500/80 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -124,7 +124,7 @@
             Equipe </a>
         </li>
         <li>
-          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-400 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-500/80 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -133,7 +133,7 @@
             Tarefas </a>
         </li>
         <li>
-          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-400 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-500/80 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -143,7 +143,7 @@
             Relatórios </a>
         </li>
         <li>
-          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-400 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-500/80 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -154,6 +154,68 @@
         </li>
       </ul>
     </aside>
+  </div>
+  
+  <div id="modal" data-open="false" aria-hidden="true"
+    class="pointer-events-none fixed inset-0 z-60 flex items-center justify-center bg-black/50 p-4 opacity-0 transition-opacity duration-300 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100">
+    <div id="modalPainel" role="dialog" aria-modal="true" aria-labelledby="modalTitulo" tabindex="-1"
+      class="w-full max-w-md scale-95 rounded-2xl border-2 border-zinc-400 bg-zinc-300 p-6 text-slate-800 shadow-xl transition-transform duration-300 dark:border-slate-900 dark:bg-slate-700 dark:text-slate-100 [#modal[data-open=true]_&]:scale-100">
+      <div class="flex items-start justify-between py-4">
+        <div class="flex flex-col ">
+          <h2 id="modalTitulo" class="text-lg font-semibold">Novo Projeto</h2>
+          <p class="text-gray-400 text-sm">Preencha os dados para adicionar ao painel</p>
+        </div>
+        <button type="button" data-close-modal aria-label="Fechar"
+          class="rounded-lg p-2 transition-colors hover:bg-zinc-400 dark:hover:bg-slate-600">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <form class="flex flex-col gap-4">
+        <label class="flex flex-col gap-1"><span class="text-base font-medium">Nome do projeto</span>
+          <input type="text" required
+            class="select-text rounded-xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 outline-none dark:border-slate-600 dark:bg-slate-900/60">
+        </label>
+        <div class="grid grid-cols-2 gap-4">
+            <label class="flex flex-col gap-2"><span class="font-medium text-base">Prazo</span>
+              <input type="date" required class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out scheme-light dark:scheme-dark dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+            </label>
+            <label class="flex flex-col gap-2"><span class="font-medium text-base">Prioridade</span>
+              <select name="" id="" required class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+                <option value="" >Selecione</option>
+                <option value="baixo">Baixa</option>
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+              </select>
+            </label>
+            <label class="flex flex-col gap-2"><span class="font-medium text-base">Responsável</span>
+              <input type="text" placeholder="Nome e Sobrenome" required class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+            </label>
+            <label class="flex flex-col gap-2"><span class="font-medium text-base">Categoria</span>
+              <select name="" id=""  required class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+                <option value="" >Selecione</option>
+                <option value="dev">Desenvolvimento</option>
+                <option value="design">Design</option>
+                <option value="marketing">Marketing</option>
+                <option value="infra">Infraestrutura</option>
+                <option value="dados">Dados</option>
+              </select>
+            </label>
+        </div>
+        <label class="flex flex-col gap-2 text-sm font-medium"><span class="text-base font-medium">Descrição</span>
+          <textarea rows="3" required
+            class="select-text rounded-xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 outline-none dark:border-slate-600 dark:bg-slate-900/60"></textarea>
+        </label>
+        <div class="flex justify-end gap-2">
+          <button type="button" data-close-modal
+            class="rounded-3xl px-4 py-2 transition-colors hover:bg-zinc-400 dark:hover:bg-slate-600">Cancelar</button>
+          <button type="submit"
+            class="rounded-3xl bg-techflow-blueDark px-4 py-2 text-mist transition-colors hover:opacity-90 dark:bg-techflow-blueSky dark:text-night">Criar</button>
+        </div>
+      </form>
+    </div>
   </div>
   <script src="/src/js/app.js"></script>
 </body>

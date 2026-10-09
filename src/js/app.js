@@ -93,3 +93,57 @@ desktop.addEventListener('change', (e) => {
 })
 
 setOpenSide(desktop.matches);
+
+/*
+
+Adicionar Projeto com o modal
+
+ */
+
+const modal = document.getElementById('modal');
+const modalPanel = document.getElementById('modalPainel');
+const openModal = document.getElementById('abrirModalNew');
+const closeModalBtns = modal.querySelectorAll('[data-close-modal]');
+const focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+let lastFocus = null;
+
+const isOpenModal = () => modal.dataset.open === "true";
+
+const setOpenModal = (open) => {
+    if(open === isOpenModal()) return;
+    modal.dataset.open = String(open);
+    modal.setAttribute('aria-hidden', String(!open));
+    document.body.classList.toggle('overflow-hidden', open || (isOpen() && !desktop.matches));
+
+    if(open) {
+        lastFocus = document.activeElement;
+        (modalPanel.querySelector('input, textarea') || modalPanel).focus();
+    } else if(lastFocus) {
+        lastFocus.focus();
+        lastFocus = null;
+    }
+}
+
+openModal.addEventListener('click', () => setOpenModal(true));
+closeModalBtns.forEach((btn) => btn.addEventListener('click', () => setOpenModal(false)));
+modal.addEventListener('click', (e) => {
+    if(e.target === modal) setOpenModal(false);
+});
+
+document.addEventListener('keydown', (e) => {
+    if(!isOpenModal()) return;
+    if(e.key === "Escape") {
+        setOpenModal(false);
+    } else if(e.key === "Tab") {
+        const items = [...modalPanel.querySelectorAll(focusableSelector)];
+        const first = items[0];
+        const last = items[items.length - 1];
+        if(e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if(!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    }
+});
