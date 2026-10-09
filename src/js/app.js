@@ -1,3 +1,5 @@
+// Controle de Tema do site
+
 const htmlElement = document.documentElement;
 const btnLight = document.getElementById('btnLight');
 const btnDark = document.getElementById('btnDark');
@@ -49,3 +51,45 @@ mediaQueryDark.addEventListener("change", () => {
 });
 
 applyTheme(initialTheme);
+
+// SideBar
+
+const sideBar = document.getElementById('sideBar');
+const overlaySide = document.getElementById('sideBarOverlay');
+const openSide = document.getElementById('sideBarOpen');
+const closeSide = document.getElementById('sideBarClose');
+const desktop = window.matchMedia("(min-width: 768px)");
+
+const setOpenSide = (open) => {
+    sideBar.dataset.open = String(open);
+    overlaySide.dataset.open = String(open);
+    overlaySide.setAttribute('aria-hidden', String(!open));
+    openSide.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('overflow-hidden', open && !desktop.matches);
+    if(open && !desktop.matches) {
+        closeSide.focus();
+    } else if(!open && document.activeElement && sideBar.contains(document.activeElement)) {
+        openSide.focus();
+    }
+}
+
+const isOpen = () => sideBar.dataset.open === "true";
+
+openSide.addEventListener('click', () => setOpenSide(true));
+closeSide.addEventListener('click', () => setOpenSide(false));
+overlaySide.addEventListener('click', (e) => {
+    if(e.target === overlaySide) setOpenSide(false);
+});
+sideBar.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => isOpen() && !desktop.matches && setOpenSide(false)));
+
+document.addEventListener('keydown', (e) => {
+    if(e.key === "Escape" && isOpen() && !desktop.matches) {
+        setOpenSide(false);
+    }
+});
+
+desktop.addEventListener('change', (e) => {
+    setOpenSide(e.matches);
+})
+
+setOpenSide(desktop.matches);
