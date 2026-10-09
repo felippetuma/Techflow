@@ -122,6 +122,7 @@ const setOpenModal = (open) => {
         lastFocus.focus();
         lastFocus = null;
     }
+    if(!open) resetForm();
 }
 
 openModal.addEventListener('click', () => setOpenModal(true));
@@ -146,4 +147,109 @@ document.addEventListener('keydown', (e) => {
             first.focus();
         }
     }
+});
+
+// Validação do formulário do modal
+
+const form = document.getElementById('formProjeto');
+const formStatus = document.getElementById('formStatus');
+const submitBtn = form.querySelector('[type="submit"]');
+const fields = [...form.querySelectorAll('input[name], select[name], textarea[name]')];
+
+const stateClasses = {
+    error: ['border-error!', 'bg-error/10!'],
+    success: ['border-sucess!', 'bg-sucess/10!']
+};
+
+const today = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+
+const rules = {
+    nome: (v) => v.length < 3 ? 'Informe ao menos 3 caracteres.' : '',
+    prazo: (v) => !v ? 'Escolha um prazo.' : v < today() ? 'O prazo não pode estar no passado.' : '',
+    prioridade: (v) => !v ? 'Selecione a prioridade.' : '',
+    responsavel: (v) => v.split(/\s+/).filter(Boolean).length < 2 ? 'Informe nome e sobrenome.' : '',
+    categoria: (v) => !v ? 'Selecione uma categoria.' : '',
+    descricao: (v) => v.length < 10 ? 'Descreva com ao menos 10 caracteres.' : ''
+};
+
+const messageOf = (field) => {
+    let msg = field.parentElement.querySelector('[data-error]');
+    if(!msg) {
+        msg = document.createElement('span');
+        msg.dataset.error = '';
+        msg.id = `erro-${field.name}`;
+        msg.className = 'text-sm font-normal text-error';
+        field.parentElement.appendChild(msg);
+    }
+    return msg;
+};
+
+const setFieldState = (field, error) => {
+    const msg = messageOf(field);
+    field.classList.remove(...stateClasses.error, ...stateClasses.success);
+    field.classList.add(...(error ? stateClasses.error : stateClasses.success));
+    field.setAttribute('aria-invalid', String(Boolean(error)));
+    field.setAttribute('aria-describedby', msg.id);
+    msg.textContent = error;
+    msg.classList.toggle('hidden', !error);
+};
+
+const validateField = (field) => {
+    const error = rules[field.name](field.value.trim());
+    setFieldState(field, error);
+    return !error;
+};
+
+const showStatus = (type, text) => {
+    formStatus.textContent = text;
+    formStatus.className = 'rounded-xl border px-3 py-2 text-sm font-medium ' + (type === 'error'
+        ? 'border-error bg-error/10 text-error'
+        : 'border-sucess bg-sucess/10 text-sucess');
+};
+
+function resetForm() {
+    form.reset();
+    fields.forEach((field) => {
+        field.classList.remove(...stateClasses.error, ...stateClasses.success);
+        field.removeAttribute('aria-invalid');
+        field.removeAttribute('aria-describedby');
+        field.dataset.touched = '';
+        const msg = field.parentElement.querySelector('[data-error]');
+        if(msg) msg.remove();
+    });
+    formStatus.className = 'hidden';
+    formStatus.textContent = '';
+    submitBtn.disabled = false;
+}
+
+form.elements.prazo.min = today();
+
+fields.forEach((field) => {
+    field.addEventListener('blur', () => {
+        field.dataset.touched = 'true';
+        validateField(field);
+    });
+    const live = () => field.dataset.touched === 'true' && validateField(field);
+    field.addEventListener('input', live);
+    field.addEventListener('change', live);
+});
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    fields.forEach((field) => field.dataset.touched = 'true');
+    const invalid = fields.filter((field) => !validateField(field));
+
+    if(invalid.length) {
+        showStatus('error', `Corrija ${invalid.length === 1 ? 'o campo destacado' : 'os campos destacados'} para continuar.`);
+        invalid[0].focus();
+        return;
+    }
+
+    const nome = form.elements.nome.value.trim();
+    showStatus('success', `Projeto "${nome}" criado com sucesso!`);
+    submitBtn.disabled = true;
+    setTimeout(() => setOpenModal(false), 1500);
 });

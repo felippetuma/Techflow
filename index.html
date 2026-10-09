@@ -20,7 +20,7 @@
   </script>
 </head>
 
-<body class="select-none bg-zinc-200 text-slate-800 flex flex-col dark:bg-slate-800 dark:text-slate-100">
+<body class="min-h-screen select-none bg-zinc-200 text-slate-800 flex flex-col dark:bg-slate-800 dark:text-slate-100">
   <nav
     class="grid min-w-full grid-cols-[1fr_auto] gap-4 rounded-br-2xl border-b-2 border-zinc-400 bg-zinc-300 p-4 transition-all duration-300 ease-in-out dark:border-slate-900 dark:bg-slate-700 md:flex md:items-center md:gap-6">
     <div class="contents">
@@ -32,8 +32,10 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
           </svg>
         </button>
-        <img src="/src/assets/techflow-compact-color.svg" alt="Logo TechFlow" class="h-auto w-32 shrink-0 sm:w-40 dark:hidden">
-        <img src="/src/assets/techflow-compact-white.svg" alt="Logo TechFlow" class="h-auto w-32 shrink-0 sm:w-40 hidden dark:block">
+        <img src="/src/assets/techflow-compact-color.svg" alt="Logo TechFlow"
+          class="h-auto w-32 shrink-0 sm:w-40 dark:hidden">
+        <img src="/src/assets/techflow-compact-white.svg" alt="Logo TechFlow"
+          class="h-auto w-32 shrink-0 sm:w-40 hidden dark:block">
       </div>
     </div>
     <div class="flex shrink-0 items-center justify-self-end gap-2 md:order-2">
@@ -83,83 +85,464 @@
         class="select-text min-w-0 w-full bg-transparent pl-2 text-sm outline-none">
     </div>
   </nav>
-  <div id="sideBarOverlay" aria-hidden="true"
-    class="pointer-events-none fixed inset-0 z-40 bg-black/50 opacity-0 transition-opacity duration-300 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100 md:pointer-events-auto md:contents md:opacity-100">
-    <aside id="sideBar" data-open="false"
-      class="fixed inset-y-0 left-0 z-50 flex w-full max-w-70.5 -translate-x-full flex-col gap-5 overflow-y-auto rounded-br-2xl border-e-2 border-zinc-400 bg-zinc-300 px-10 py-6 transition-transform duration-300 ease-in-out data-[open=true]:translate-x-0 dark:border-slate-900 dark:bg-slate-700 md:static md:z-auto md:min-h-screen md:translate-x-0 md:overflow-visible">
-      <button id="sideBarClose" type="button" aria-label="Fechar menu"
-        class="self-end rounded-lg p-2 text-slate-700 transition-colors hover:bg-zinc-400 dark:text-slate-200 dark:hover:bg-slate-600 md:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-          class="size-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-        </svg>
-      </button>
-      <ul class="list-none flex flex-col gap-3 outline-none">
-        <li>
-          <a href="#" class="group flex gap-2 items-center rounded-lg bg-zinc-400/15 px-3 py-2.5 text-techflow-blue font-semibold transition active:scale-[0.98] dark:bg-techflow-blue/15 dark:text-slate-200 hover:text-slate-800 dark:hover:text-slate-200">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
-            </svg>
-            Dashboard</a>
-        </li>
-        <li>
-          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-500/80 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
-            </svg>
-            Projetos
-          </a>
-        </li>
-        <li>
-          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-500/80 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-            </svg>
-            Equipe </a>
-        </li>
-        <li>
-          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-500/80 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
-            </svg>
-            Tarefas </a>
-        </li>
-        <li>
-          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-500/80 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-            </svg>
+  <div class="flex flex-1">
+    <div id="sideBarOverlay" aria-hidden="true"
+      class="pointer-events-none fixed inset-0 z-40 bg-black/50 opacity-0 transition-opacity duration-300 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100 md:pointer-events-auto md:contents md:opacity-100">
+      <aside id="sideBar" data-open="false"
+        class="fixed inset-y-0 left-0 z-50 flex w-full max-w-70.5 -translate-x-full flex-col gap-5 overflow-y-auto rounded-br-2xl border-e-2 border-zinc-400 bg-zinc-300 px-10 py-6 transition-transform duration-300 ease-in-out data-[open=true]:translate-x-0 dark:border-slate-900 dark:bg-slate-700 md:static md:z-auto md:w-70.5 md:shrink-0 md:translate-x-0 md:overflow-visible">
+        <button id="sideBarClose" type="button" aria-label="Fechar menu"
+          class="self-end rounded-lg p-2 text-slate-700 transition-colors hover:bg-zinc-400 dark:text-slate-200 dark:hover:bg-slate-600 md:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <ul class="list-none flex flex-col gap-3 outline-none">
+          <li>
+            <a href="#Dashboard"
+              class="group flex gap-2 items-center rounded-lg bg-zinc-400/15 px-3 py-2.5 text-techflow-blue font-semibold transition active:scale-[0.98] dark:bg-techflow-blue/15 dark:text-slate-200 hover:text-slate-800 dark:hover:text-slate-200">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+              </svg>
+              Dashboard</a>
+          </li>
+          <li>
+            <a href="#projetos"
+              class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+              </svg>
+              Projetos
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+              </svg>
+              Equipe </a>
+          </li>
+          <li>
+            <a href="#"
+              class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+              </svg>
+              Tarefas </a>
+          </li>
+          <li>
+            <a href="#"
+              class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+              </svg>
 
-            Relatórios </a>
-        </li>
-        <li>
-          <a href="#" class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-500/80 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
-            </svg>
-            Configurações
-          </a>
-        </li>
-      </ul>
-    </aside>
+              Relatórios </a>
+          </li>
+          <li>
+            <a role="link" aria-disabled="true"
+              class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed aria-disabled:opacity-50 text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
+              </svg>
+              Configurações
+            </a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+
+    <main class="min-w-0 flex-1 p-6">
+      <header id="Dashboard">
+        <h2 class="text-3xl font-bold">Dashboard</h2>
+        <div class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div
+            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
+            <h3 class="font-medium text-base">
+              Projetos Ativos
+            </h3>
+            <p class="text-2xl font-bold">
+              10
+            </p>
+            <div role="progressbar" aria-label="Projetos ativos" aria-valuemin="0" aria-valuemax="100"
+              aria-valuenow="100" class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+              <div
+                class="h-full w-[100%] rounded-full bg-violet transition-all duration-500 ease-in-out dark:bg-violet">
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
+            <h3 class="font-medium text-base">
+              Projetos Concluídos
+            </h3>
+            <p class="text-2xl font-bold">
+              6
+            </p>
+            <div role="progressbar" aria-label="Projetos concluídos" aria-valuemin="0" aria-valuemax="100"
+              aria-valuenow="60" class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+              <div class="h-full w-[60%] rounded-full bg-sucess transition-all duration-500 ease-in-out dark:bg-sucess">
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
+            <h3 class="font-medium text-base">
+              Tarefas Pendentes
+            </h3>
+            <p class="text-2xl font-bold">
+              4
+            </p>
+            <div role="progressbar" aria-label="Tarefas pendentes" aria-valuemin="0" aria-valuemax="100"
+              aria-valuenow="40" class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+              <div
+                class="h-full w-[40%] rounded-full bg-attention transition-all duration-500 ease-in-out dark:bg-attention">
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
+            <h3 class="font-medium text-base">
+              Equipe
+            </h3>
+            <p class="text-2xl font-bold">
+              2
+            </p>
+            <div role="progressbar" aria-label="Equipe" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"
+              class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+              <div
+                class="h-full w-[20%] rounded-full bg-techflow-blueDark transition-all duration-500 ease-in-out dark:bg-techflow-blue">
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div id="projetos" class="mt-6">
+        <h1 class="text-2xl font-bold">Projetos</h1>
+        <div class="grid grid-cols-1 gap-4 mt-6 lg:grid-cols-2 xl:grid-cols-[1.3fr_1fr_1fr]">
+          <div
+            class="flex flex-col gap-4 bg-zinc-300 border border-zinc-400/25 dark:border-slate-600 dark:bg-slate-700 px-4 py-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1 lg:col-span-2 xl:col-span-1 xl:row-span-2">
+            <div
+              class="self-start px-3 bg-techflow-blue/45 rounded-2xl text-techflow-blueDark dark:text-blue-500 text-sm font-medium">
+              Desenvolvimento
+            </div>
+            <div>
+              <h1 class="text-xl font-bold">Dashboard de Análise de Fluxo</h1>
+              <p class="text-sm text-slate-800/65 dark:text-slate-200/75">Dashboard interativa para acompanhar o fluxo
+                de projetos e tarefas,
+                com gráficos e indicadores em tempo real, adaptada para computador, tablet e celular.</p>
+              <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
+                <p class="text-base">Felippe Tuma</p>
+                <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
+                  <p
+                    class="flex text-[12px] font-bold items-center gap-2 text-error bg-error/25 px-3 py-0.5 rounded-3xl">
+                    <span class="size-3 shrink-0 bg-error rounded-full" aria-hidden="true"></span><span>Alta</span>
+                  </p>
+                  <p class="flex items-center font-medium gap-1 text-[12px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="size-4 shrink-0" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                    </svg>
+                    05 de out. de 2026
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-attention/40 rounded-md p-4">
+              <p class="flex gap-1 text-yellow-600 dark:text-attention text-sm font-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="size-5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5" />
+                </svg>
+                Atenção!
+              </p>
+              <p class="text-sm text-slate-800 dark:text-slate-100">O prazo de entrega está chegando ao fim. Faltam
+                tempo e ainda restam ajustes finais, então priorize a conclusão das tarefas pendentes.</p>
+            </div>
+            <div class="mt-auto flex justify-between">
+              <p class="text-[12px] text-slate-700/65 dark:text-slate-200/55">Progresso</p>
+              <p class="text-[12px] text-slate-700 dark:text-slate-200 font-bold">90%</p>
+            </div>
+            <div role="progressbar" aria-label="Dashboard de análise de fluxo" aria-valuemin="0" aria-valuemax="100"
+              aria-valuenow="90" class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+              <div
+                class="h-full w-[90%] rounded-full bg-techflow-blueDark transition-all duration-500 ease-in-out dark:bg-techflow-blue">
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 bg-zinc-300 border border-zinc-400/25 dark:border-slate-600 dark:bg-slate-700 px-4 py-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1 ">
+            <div
+              class="self-start px-3 bg-cyan-data/45 text-cyan-700 dark:text-cyan-data rounded-2xl text-sm font-medium">
+              Dados
+            </div>
+            <div>
+              <h1 class="text-xl font-bold">Cadastro da Categoria Dados</h1>
+              <p class="text-sm text-slate-800/65 dark:text-slate-200/75">Definição da categoria Dados no cadastro de
+                projetos, com etiqueta
+                e cor própria para identificar as demandas de análise, relatórios e dashboards.</p>
+              <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
+                <p class="text-base">Felipe Motta</p>
+                <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
+                  <p
+                    class="flex text-[12px] items-center gap-2 text-sucess font-bold bg-sucess/25 px-3 py-0.5 rounded-3xl">
+                    <span class="size-3 shrink-0 bg-sucess rounded-full" aria-hidden="true"></span><span>Baixa</span>
+                  </p>
+                  <p class="flex items-center gap-1 text-[12px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="size-4 shrink-0" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                    </svg>
+                    08 de out. de 2026
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-auto flex justify-between">
+              <p class="text-[12px] text-slate-700/65 dark:text-slate-200/55">Progresso</p>
+              <p class="text-[12px] text-slate-700 dark:text-slate-200 font-bold">30%</p>
+            </div>
+            <div role="progressbar" aria-label="Cadastro da categoria Dados" aria-valuemin="0" aria-valuemax="100"
+              aria-valuenow="30" class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+              <div
+                class="h-full w-[30%] rounded-full bg-techflow-blueDark transition-all duration-500 ease-in-out dark:bg-techflow-blue">
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 bg-zinc-300 border border-zinc-400/25 dark:border-slate-600 dark:bg-slate-700 px-4 py-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1 ">
+            <div
+              class="self-start px-3 bg-pink-400/45 text-pink-800 dark:text-pink-300 rounded-2xl text-sm font-medium">
+              Design
+            </div>
+            <div>
+              <h1 class="text-xl font-bold">Identidade Visual da TechFlow</h1>
+              <p class="text-sm text-slate-800/65 dark:text-slate-200/75">Criação da identidade visual da TechFlow, com
+                logotipo, paleta de
+                cores e versões para fundos claros e escuros.</p>
+              <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
+                <p class="text-base">Arthur Nepomuceno</p>
+                <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
+                  <p
+                    class="flex text-[12px] items-center gap-2 text-attention font-bold bg-attention/25 px-3 py-0.5 rounded-3xl">
+                    <span class="size-3 shrink-0 bg-attention rounded-full" aria-hidden="true"></span><span>Média</span>
+                  </p>
+                  <p class="flex items-center gap-1 text-[12px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="size-4 shrink-0" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                    </svg>
+                    06 de out. de 2026
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-auto flex justify-between">
+              <p class="text-[12px] text-slate-700/65 dark:text-slate-200/55">Progresso</p>
+              <p class="text-[12px] text-slate-700 dark:text-slate-200 font-bold">45%</p>
+            </div>
+            <div role="progressbar" aria-label="Identidade visual da TechFlow" aria-valuemin="0" aria-valuemax="100"
+              aria-valuenow="45" class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+              <div
+                class="h-full w-[45%] rounded-full bg-techflow-blueDark transition-all duration-500 ease-in-out dark:bg-techflow-blue">
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 bg-zinc-300 border border-zinc-400/25 dark:border-slate-600 dark:bg-slate-700 px-4 py-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1 lg:col-span-2">
+            <div
+              class="self-start px-3 bg-violet/45 text-violet-700 dark:text-violet-400 rounded-2xl text-sm font-medium">
+              Infraestrutura
+            </div>
+            <div>
+              <h1 class="text-xl font-bold">Hospedagem e Deploy da Aplicação</h1>
+              <p class="text-sm text-slate-800/65 dark:text-slate-200/75">Configuração da hospedagem da TechFlow, com
+                domínio, certificado
+                HTTPS, deploy automatizado e monitoramento da disponibilidade do ambiente de produção.</p>
+              <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
+                <p class="text-base">Felippe Tuma</p>
+                <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
+                  <p
+                    class="flex text-[12px] items-center gap-2 text-error font-bold bg-error/25 px-3 py-0.5 rounded-3xl">
+                    <span class="size-3 shrink-0 bg-error rounded-full" aria-hidden="true"></span><span>Alta</span>
+                  </p>
+                  <p class="flex items-center gap-1 text-[12px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="size-4 shrink-0" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                    </svg>
+                    20 de out. de 2026
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-auto flex justify-between">
+              <p class="text-[12px] text-slate-700/65 dark:text-slate-200/55">Progresso</p>
+              <p class="text-[12px] text-slate-700 dark:text-slate-200 font-bold">10%</p>
+            </div>
+            <div role="progressbar" aria-label="Hospedagem e deploy da aplicação" aria-valuemin="0" aria-valuemax="100"
+              aria-valuenow="10" class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+              <div
+                class="h-full w-[10%] rounded-full bg-techflow-blueDark transition-all duration-500 ease-in-out dark:bg-techflow-blue">
+              </div>
+            </div>
+          </div>
+          <div class="col-span-full grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+            <div
+              class="flex flex-col gap-4 bg-zinc-300 border border-zinc-400/25 dark:border-slate-600 dark:bg-slate-700 px-4 py-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
+              <div
+                class="self-start px-3 bg-orange-400/45 text-orange-800 dark:text-orange-300 rounded-2xl text-sm font-medium">
+                Marketing
+              </div>
+              <div>
+                <h1 class="text-xl font-bold">Campanha de Lançamento da TechFlow</h1>
+                <p class="text-sm text-slate-800/65 dark:text-slate-200/75">Planejamento da campanha de divulgação do
+                  lançamento, com peças para redes sociais, e-mail marketing e página de captação de leads.</p>
+                <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
+                  <p class="text-base">Arthur Nepomuceno</p>
+                  <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
+                    <p
+                      class="flex text-[12px] items-center gap-2 text-error font-bold bg-error/25 px-3 py-0.5 rounded-3xl">
+                      <span class="size-3 shrink-0 bg-error rounded-full" aria-hidden="true"></span><span>Alta</span>
+                    </p>
+                    <p class="flex items-center gap-1 text-[12px]">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-4 shrink-0" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                      </svg>
+                      28 de out. de 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-auto flex justify-between">
+                <p class="text-[12px] text-slate-700/65 dark:text-slate-200/55">Progresso</p>
+                <p class="text-[12px] text-slate-700 dark:text-slate-200 font-bold">25%</p>
+              </div>
+              <div role="progressbar" aria-label="Campanha de lançamento da TechFlow" aria-valuemin="0"
+                aria-valuemax="100" aria-valuenow="25"
+                class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+                <div
+                  class="h-full w-[25%] rounded-full bg-techflow-blueDark transition-all duration-500 ease-in-out dark:bg-techflow-blue">
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col gap-4 bg-zinc-300 border border-zinc-400/25 dark:border-slate-600 dark:bg-slate-700 px-4 py-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
+              <div
+                class="self-start px-3 bg-techflow-blue/45 text-techflow-blueDark dark:text-blue-500 rounded-2xl text-sm font-medium">
+                Desenvolvimento
+              </div>
+              <div>
+                <h1 class="text-xl font-bold">API de Projetos e Tarefas</h1>
+                <p class="text-sm text-slate-800/65 dark:text-slate-200/75">Desenvolvimento da API REST para cadastro,
+                  listagem e atualização de projetos e tarefas, com autenticação e documentação dos endpoints.</p>
+                <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
+                  <p class="text-base">Felipe Motta</p>
+                  <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
+                    <p
+                      class="flex text-[12px] items-center gap-2 text-attention font-bold bg-attention/25 px-3 py-0.5 rounded-3xl">
+                      <span class="size-3 shrink-0 bg-attention rounded-full"
+                        aria-hidden="true"></span><span>Média</span>
+                    </p>
+                    <p class="flex items-center gap-1 text-[12px]">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-4 shrink-0" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                      </svg>
+                      05 de nov. de 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-auto flex justify-between">
+                <p class="text-[12px] text-slate-700/65 dark:text-slate-200/55">Progresso</p>
+                <p class="text-[12px] text-slate-700 dark:text-slate-200 font-bold">55%</p>
+              </div>
+              <div role="progressbar" aria-label="API de projetos e tarefas" aria-valuemin="0" aria-valuemax="100"
+                aria-valuenow="55" class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+                <div
+                  class="h-full w-[55%] rounded-full bg-techflow-blueDark transition-all duration-500 ease-in-out dark:bg-techflow-blue">
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col gap-4 bg-zinc-300 border border-zinc-400/25 dark:border-slate-600 dark:bg-slate-700 px-4 py-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1 lg:col-span-2 xl:col-span-1">
+              <div
+                class="self-start px-3 bg-cyan-data/45 text-cyan-700 dark:text-cyan-data rounded-2xl text-sm font-medium">
+                Dados
+              </div>
+              <div>
+                <h1 class="text-xl font-bold">Relatório Mensal de Desempenho</h1>
+                <p class="text-sm text-slate-800/65 dark:text-slate-200/75">Consolidação dos indicadores mensais de
+                  projetos concluídos, tarefas pendentes e produtividade da equipe em relatórios exportáveis.</p>
+                <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
+                  <p class="text-base">Felippe Tuma</p>
+                  <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
+                    <p
+                      class="flex text-[12px] items-center gap-2 text-sucess font-bold bg-sucess/25 px-3 py-0.5 rounded-3xl">
+                      <span class="size-3 shrink-0 bg-sucess rounded-full" aria-hidden="true"></span><span>Baixa</span>
+                    </p>
+                    <p class="flex items-center gap-1 text-[12px]">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-4 shrink-0" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                      </svg>
+                      30 de nov. de 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-auto flex justify-between">
+                <p class="text-[12px] text-slate-700/65 dark:text-slate-200/55">Progresso</p>
+                <p class="text-[12px] text-slate-700 dark:text-slate-200 font-bold">15%</p>
+              </div>
+              <div role="progressbar" aria-label="Relatório mensal de desempenho" aria-valuemin="0" aria-valuemax="100"
+                aria-valuenow="15" class="h-2 w-full overflow-hidden rounded-full bg-zinc-400 dark:bg-slate-900">
+                <div
+                  class="h-full w-[15%] rounded-full bg-techflow-blueDark transition-all duration-500 ease-in-out dark:bg-techflow-blue">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
-  
+
+
   <div id="modal" data-open="false" aria-hidden="true"
     class="pointer-events-none fixed inset-0 z-60 flex items-center justify-center bg-black/50 p-4 opacity-0 transition-opacity duration-300 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100">
     <div id="modalPainel" role="dialog" aria-modal="true" aria-labelledby="modalTitulo" tabindex="-1"
-      class="w-full max-w-md scale-95 rounded-2xl border-2 border-zinc-400 bg-zinc-300 p-6 text-slate-800 shadow-xl transition-transform duration-300 dark:border-slate-900 dark:bg-slate-700 dark:text-slate-100 [#modal[data-open=true]_&]:scale-100">
+      class="max-h-full w-full max-w-md scale-95 overflow-y-auto rounded-2xl border-2 border-zinc-400 bg-zinc-300 p-6 text-slate-800 shadow-xl transition-transform duration-300 dark:border-slate-900 dark:bg-slate-700 dark:text-slate-100 [#modal[data-open=true]_&]:scale-100">
       <div class="flex items-start justify-between py-4">
         <div class="flex flex-col ">
           <h2 id="modalTitulo" class="text-lg font-semibold">Novo Projeto</h2>
@@ -173,41 +556,46 @@
           </svg>
         </button>
       </div>
-      <form class="flex flex-col gap-4">
+      <form id="formProjeto" novalidate class="flex flex-col gap-4">
         <label class="flex flex-col gap-1"><span class="text-base font-medium">Nome do projeto</span>
-          <input type="text" required
+          <input type="text" name="nome" required
             class="select-text rounded-xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 outline-none dark:border-slate-600 dark:bg-slate-900/60">
         </label>
-        <div class="grid grid-cols-2 gap-4">
-            <label class="flex flex-col gap-2"><span class="font-medium text-base">Prazo</span>
-              <input type="date" required class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out scheme-light dark:scheme-dark dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
-            </label>
-            <label class="flex flex-col gap-2"><span class="font-medium text-base">Prioridade</span>
-              <select name="" id="" required class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
-                <option value="" >Selecione</option>
-                <option value="baixo">Baixa</option>
-                <option value="media">Media</option>
-                <option value="alta">Alta</option>
-              </select>
-            </label>
-            <label class="flex flex-col gap-2"><span class="font-medium text-base">Responsável</span>
-              <input type="text" placeholder="Nome e Sobrenome" required class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
-            </label>
-            <label class="flex flex-col gap-2"><span class="font-medium text-base">Categoria</span>
-              <select name="" id=""  required class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
-                <option value="" >Selecione</option>
-                <option value="dev">Desenvolvimento</option>
-                <option value="design">Design</option>
-                <option value="marketing">Marketing</option>
-                <option value="infra">Infraestrutura</option>
-                <option value="dados">Dados</option>
-              </select>
-            </label>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <label class="flex flex-col gap-2"><span class="font-medium text-base">Prazo</span>
+            <input type="date" name="prazo" required
+              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out scheme-light dark:scheme-dark dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+          </label>
+          <label class="flex flex-col gap-2"><span class="font-medium text-base">Prioridade</span>
+            <select name="prioridade" required
+              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+              <option value="">Selecione</option>
+              <option value="baixo">Baixa</option>
+              <option value="media">Media</option>
+              <option value="alta">Alta</option>
+            </select>
+          </label>
+          <label class="flex flex-col gap-2"><span class="font-medium text-base">Responsável</span>
+            <input type="text" name="responsavel" placeholder="Nome e Sobrenome" required
+              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+          </label>
+          <label class="flex flex-col gap-2"><span class="font-medium text-base">Categoria</span>
+            <select name="categoria" required
+              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+              <option value="">Selecione</option>
+              <option value="dev">Desenvolvimento</option>
+              <option value="design">Design</option>
+              <option value="marketing">Marketing</option>
+              <option value="infra">Infraestrutura</option>
+              <option value="dados">Dados</option>
+            </select>
+          </label>
         </div>
         <label class="flex flex-col gap-2 text-sm font-medium"><span class="text-base font-medium">Descrição</span>
-          <textarea rows="3" required
+          <textarea name="descricao" rows="3" required
             class="select-text rounded-xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 outline-none dark:border-slate-600 dark:bg-slate-900/60"></textarea>
         </label>
+        <p id="formStatus" role="status" class="hidden rounded-xl border px-3 py-2 text-sm font-medium"></p>
         <div class="flex justify-end gap-2">
           <button type="button" data-close-modal
             class="rounded-3xl px-4 py-2 transition-colors hover:bg-zinc-400 dark:hover:bg-slate-600">Cancelar</button>
