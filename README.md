@@ -20,7 +20,7 @@ Nesse projeto do **TechFlow** foi utilizando as seguintes tecnologias:
 | Felipe Motta | 570550 |
 
 
-## Principais Recursos Implementados:
+## Principais Recursos Implementados
 Dashboard de projetos: visualização de indicadores e cards com informações sobre os projetos, incluindo responsáveis, prioridades, prazos e progresso.
 
 Indicadores visuais: cards com dados de projetos ativos, projetos concluídos, tarefas pendentes e equipe.
@@ -38,11 +38,15 @@ Dropdown do usuário: menu interativo com suporte à navegação por teclado.
 Feedback visual: efeitos de hover, foco e clique, transições e mensagens de validação para melhorar a interação com a interface.
 
 
-## Link do Github:
-https://github.com/felippetuma/Techflow/edit/main/README.md
+## Link do Github
+[Repotório GitHub](https://github.com/felippetuma/Techflow/)
 
 
-## Dificuldades encontradas:
+## Link da Vercel
+[TechFlow na Vercel](https://techflow-weld.vercel.app/)
+
+
+## Dificuldades encontradas
 Durante o desenvolvimento, alguns pontos exigiram mais atenção, principalmente na sincronização dos estados da interface e no comportamento dos componentes em diferentes dispositivos.
 
 Sidebar responsiva
@@ -54,7 +58,3 @@ Dropdown do usuário
 O dropdown precisava manter o botão e o menu sincronizados durante a abertura e o fechamento. Para isso, a função setOpenUserMenu(open) centraliza as alterações de estado.
 
 Também foram implementados comportamentos para fechar o menu ao clicar fora dele ou pressionar Esc, além de recursos de navegação por teclado, como as setas, Home e End.
-
-
-
-
