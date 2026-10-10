@@ -58,7 +58,7 @@ const sideBar = document.getElementById('sideBar');
 const overlaySide = document.getElementById('sideBarOverlay');
 const openSide = document.getElementById('sideBarOpen');
 const closeSide = document.getElementById('sideBarClose');
-const desktop = window.matchMedia("(min-width: 768px)");
+const desktop = window.matchMedia("(min-width: 1024px)");
 
 const setOpenSide = (open) => {
     sideBar.dataset.open = String(open);
@@ -252,4 +252,68 @@ form.addEventListener('submit', (e) => {
     showStatus('success', `Projeto "${nome}" criado com sucesso!`);
     submitBtn.disabled = true;
     setTimeout(() => setOpenModal(false), 1500);
+});
+
+// Dropdown do usuário
+
+const userBtn = document.getElementById('openUserMenu');
+const userMenu = document.getElementById('userMenu');
+const userItems = [...userMenu.querySelectorAll('[role="menuitem"]')];
+
+const isUserMenuOpen = () => userMenu.dataset.open === "true";
+
+const setOpenUserMenu = (open, focusItem = false) => {
+    userMenu.dataset.open = String(open);
+    userBtn.setAttribute('aria-expanded', String(open));
+    if(open && focusItem) userItems[0].focus();
+};
+
+userBtn.addEventListener('click', () => setOpenUserMenu(!isUserMenuOpen()));
+
+userBtn.addEventListener('keydown', (e) => {
+    if(e.key === "ArrowDown") {
+        e.preventDefault();
+        setOpenUserMenu(true, true);
+    }
+});
+
+userMenu.addEventListener('keydown', (e) => {
+    const index = userItems.indexOf(document.activeElement);
+    if(e.key === "ArrowDown") {
+        e.preventDefault();
+        userItems[(index + 1) % userItems.length].focus();
+    } else if(e.key === "ArrowUp") {
+        e.preventDefault();
+        userItems[(index - 1 + userItems.length) % userItems.length].focus();
+    } else if(e.key === "Home") {
+        e.preventDefault();
+        userItems[0].focus();
+    } else if(e.key === "End") {
+        e.preventDefault();
+        userItems[userItems.length - 1].focus();
+    }
+});
+
+userItems.forEach((item) => item.addEventListener('click', () => {
+    setOpenUserMenu(false);
+    userBtn.focus();
+}));
+
+document.addEventListener('click', (e) => {
+    if(isUserMenuOpen() && !userBtn.contains(e.target) && !userMenu.contains(e.target)) {
+        setOpenUserMenu(false);
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if(e.key === "Escape" && isUserMenuOpen()) {
+        setOpenUserMenu(false);
+        userBtn.focus();
+    }
+});
+
+userMenu.addEventListener('focusout', (e) => {
+    if(isUserMenuOpen() && e.relatedTarget && !userMenu.contains(e.relatedTarget) && e.relatedTarget !== userBtn) {
+        setOpenUserMenu(false);
+    }
 });

@@ -26,16 +26,18 @@
     <div class="contents">
       <div class="flex min-w-0 items-center gap-3 md:shrink-0">
         <button id="sideBarOpen" type="button" aria-label="Abrir menu" aria-controls="sideBar" aria-expanded="false"
-          class="rounded-lg p-2 text-slate-700 transition-colors hover:bg-zinc-400 dark:text-slate-200 dark:hover:bg-slate-600 md:hidden">
+          class="rounded-lg p-2 text-slate-700 transition-colors hover:bg-zinc-400 dark:text-slate-200 dark:hover:bg-slate-600 lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
           </svg>
         </button>
-        <img src="/src/assets/techflow-compact-color.svg" alt="Logo TechFlow"
-          class="h-auto w-32 shrink-0 sm:w-40 dark:hidden">
-        <img src="/src/assets/techflow-compact-white.svg" alt="Logo TechFlow"
-          class="h-auto w-32 shrink-0 sm:w-40 hidden dark:block">
+        <div class="w-8 shrink-0 overflow-hidden sm:w-40">
+          <img src="/src/assets/techflow-compact-color.svg" alt="Logo TechFlow"
+            class="h-auto w-32 max-w-none sm:w-40 dark:hidden">
+          <img src="/src/assets/techflow-compact-white.svg" alt="Logo TechFlow"
+            class="hidden h-auto w-32 max-w-none sm:w-40 dark:block">
+        </div>
       </div>
     </div>
     <div class="flex shrink-0 items-center justify-self-end gap-2 md:order-2">
@@ -65,17 +67,73 @@
         </button>
       </div>
       <button id="abrirModalNew" type="button" aria-label="Adicionar projeto"
-        class="inline-flex items-center justify-center rounded-full font-medium bg-techflow-blueDark p-3 text-mist transition-colors hover:opacity-90 dark:bg-techflow-blueSky dark:text-night sm:rounded-3xl sm:px-3 sm:py-2">
+        class="inline-flex items-center justify-center rounded-full font-medium bg-techflow-blueDark p-3 text-mist transition-colors hover:opacity-90 dark:bg-techflow-blueSky dark:text-night sm:rounded-3xl sm:px-3 sm:py-2 md:rounded-full md:p-3 lg:rounded-3xl lg:px-3 lg:py-2">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="size-5 sm:size-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
         </svg>
-        <span class="hidden sm:inline">Novo Projeto</span>
+        <span class="hidden sm:inline md:hidden lg:inline">Novo Projeto</span>
       </button>
+
+      <div class="relative">
+        <button id="openUserMenu" type="button" aria-label="Menu do usuário" aria-haspopup="menu" aria-expanded="false"
+          aria-controls="userMenu"
+          class="flex items-center gap-3 rounded-xl p-1 transition-colors hover:bg-zinc-400/30 dark:hover:bg-slate-600/60">
+          <div
+            class="flex size-9 shrink-0 items-center justify-center rounded bg-techflow-blue text-sm font-semibold text-slate-200">
+            FT
+          </div>
+          <div class="hidden text-left leading-tight lg:block">
+            <p class="block text-sm font-semibold">Felippe Tuma</p>
+            <p class="block text-xs text-slate-600 dark:text-slate-400">Tech Lead</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+          <div class="sr-only md:hidden">Menu do usuário</div>
+        </button>
+        <div id="userMenu" data-open="false" role="menu" aria-labelledby="openUserMenu"
+          class="invisible absolute right-0 top-full z-30 mt-2 w-56 origin-top-right scale-95 rounded-xl border border-zinc-400 bg-zinc-300 p-2 opacity-0 shadow-lg transition duration-200 ease-in-out data-[open=true]:visible data-[open=true]:scale-100 data-[open=true]:opacity-100 dark:border-slate-900 dark:bg-slate-700">
+          <div class="border-b border-zinc-400 px-3 pb-2 pt-1 text-left leading-tight dark:border-slate-600 lg:hidden">
+            <p class="block text-sm font-semibold">Felippe Tuma</p>
+            <p class="block text-xs text-slate-600 dark:text-slate-400">Tech Lead</p>
+          </div>
+          <div class="mt-2 flex flex-col gap-1">
+            <button type="button" role="menuitem"
+              class="flex w-full gap-2 group items-center rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-zinc-400/30 focus-visible:bg-zinc-400/30 focus-visible:outline-none dark:hover:bg-slate-600/60 dark:focus-visible:bg-slate-600/60">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+              Meu
+              perfil</button>
+            <button type="button" role="menuitem"
+              class="flex gap-2 group w-full items-center rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-zinc-400/30 focus-visible:bg-zinc-400/30 focus-visible:outline-none dark:hover:bg-slate-600/60 dark:focus-visible:bg-slate-600/60">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
+              </svg>Configurações</button>
+            <button type="button" role="menuitem"
+              class="flex w-full items-center rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-zinc-400/30 focus-visible:bg-zinc-400/30 focus-visible:outline-none dark:hover:bg-slate-600/60 dark:focus-visible:bg-slate-600/60 text-error gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+              </svg>
+              Sair</button>
+          </div>
+        </div>
+
+      </div>
 
     </div>
     <div
-      class="relative col-span-2 flex min-w-0 w-full items-center rounded-xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400 md:order-1 md:col-span-1 md:mx-0 md:mr-auto md:max-w-md md:flex-1">
+      class="relative col-span-2 flex min-w-0 w-full items-center rounded-xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400 md:order-1 md:col-span-1 md:mx-0 md:mr-auto md:min-w-44 md:max-w-md md:flex-1 focus-within:border-techflow-blue focus-within:ring-2 focus-within:ring-techflow-blue/40 dark:focus-within:border-techflow-blueSky dark:focus-within:ring-techflow-blueSky/40">
       <svg class="size-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
         stroke="currentColor" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -87,11 +145,11 @@
   </nav>
   <div class="flex flex-1">
     <div id="sideBarOverlay" aria-hidden="true"
-      class="pointer-events-none fixed inset-0 z-40 bg-black/50 opacity-0 transition-opacity duration-300 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100 md:pointer-events-auto md:contents md:opacity-100">
+      class="pointer-events-none fixed inset-0 z-40 bg-black/50 opacity-0 transition-opacity duration-300 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100 lg:pointer-events-auto lg:contents lg:opacity-100">
       <aside id="sideBar" data-open="false"
-        class="fixed inset-y-0 left-0 z-50 flex w-full max-w-70.5 -translate-x-full flex-col gap-5 overflow-y-auto rounded-br-2xl border-e-2 border-zinc-400 bg-zinc-300 px-10 py-6 transition-transform duration-300 ease-in-out data-[open=true]:translate-x-0 dark:border-slate-900 dark:bg-slate-700 md:static md:z-auto md:w-70.5 md:shrink-0 md:translate-x-0 md:overflow-visible">
+        class="fixed inset-y-0 left-0 z-50 flex w-full max-w-70.5 -translate-x-full flex-col gap-5 overflow-y-auto rounded-br-2xl border-e-2 border-zinc-400 bg-zinc-300 px-10 py-6 transition-transform duration-300 ease-in-out data-[open=true]:translate-x-0 dark:border-slate-900 dark:bg-slate-700 lg:static lg:z-auto lg:w-70.5 lg:shrink-0 lg:translate-x-0 lg:overflow-visible">
         <button id="sideBarClose" type="button" aria-label="Fechar menu"
-          class="self-end rounded-lg p-2 text-slate-700 transition-colors hover:bg-zinc-400 dark:text-slate-200 dark:hover:bg-slate-600 md:hidden">
+          class="self-end rounded-lg p-2 text-slate-700 transition-colors hover:bg-zinc-400 dark:text-slate-200 dark:hover:bg-slate-600 lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
@@ -122,7 +180,7 @@
             </a>
           </li>
           <li>
-            <a href="#"
+            <a href="#projetos"
               class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor"
@@ -133,19 +191,20 @@
               Equipe </a>
           </li>
           <li>
-            <a href="#"
-              class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+            <button type="button" disabled
+              class="group w-full text-left disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor"
                 class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
               </svg>
-              Tarefas </a>
+              Tarefas
+            </button>
           </li>
           <li>
-            <a href="#"
-              class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+            <button type="button" disabled
+              class="group flex w-full text-left items-center gap-2 rounded-lg px-3 py-2.5 transition text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor"
                 class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
@@ -153,11 +212,12 @@
                   d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
               </svg>
 
-              Relatórios </a>
+              Relatórios
+            </button>
           </li>
           <li>
-            <a role="link" aria-disabled="true"
-              class="group flex items-center gap-2 rounded-lg px-3 py-2.5 transition aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed aria-disabled:opacity-50 text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
+            <button type="button" disabled
+              class="group flex w-full items-center text-left gap-2 rounded-lg px-3 py-2.5 transition disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 text-gray-600/85 dark:text-gray-400/85 hover:bg-zinc-400/15 hover:text-slate-800 active:scale-[0.98] dark:hover:bg-techflow-blueDark/15 dark:hover:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor"
                 class="size-6 group-hover:text-techflow-blue dark:group-hover:text-techflow-blueSky">
@@ -165,19 +225,19 @@
                   d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
               </svg>
               Configurações
-            </a>
+            </button>
           </li>
         </ul>
       </aside>
     </div>
 
 
-    <main class="min-w-0 flex-1 p-6">
+    <main class="min-w-0 flex-1 p-6 2xl:p-10">
       <header id="Dashboard">
-        <h2 class="text-3xl font-bold">Dashboard</h2>
-        <div class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 xl:grid-cols-4">
+        <h2 class="text-3xl font-bold 2xl:text-4xl">Dashboard</h2>
+        <div class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 xl:grid-cols-4 2xl:gap-6">
           <div
-            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
+            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 2xl:p-8 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
             <h3 class="font-medium text-base">
               Projetos Ativos
             </h3>
@@ -192,7 +252,7 @@
             </div>
           </div>
           <div
-            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
+            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 2xl:p-8 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
             <h3 class="font-medium text-base">
               Projetos Concluídos
             </h3>
@@ -206,7 +266,7 @@
             </div>
           </div>
           <div
-            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
+            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 2xl:p-8 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
             <h3 class="font-medium text-base">
               Tarefas Pendentes
             </h3>
@@ -221,7 +281,7 @@
             </div>
           </div>
           <div
-            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
+            class="flex flex-col gap-4 bg-zinc-300 dark:bg-slate-700 border border-zinc-400/25 dark:border-slate-600 p-6 2xl:p-8 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
             <h3 class="font-medium text-base">
               Equipe
             </h3>
@@ -238,8 +298,9 @@
         </div>
       </header>
       <div id="projetos" class="mt-6">
-        <h1 class="text-2xl font-bold">Projetos</h1>
-        <div class="grid grid-cols-1 gap-4 mt-6 lg:grid-cols-2 xl:grid-cols-[1.3fr_1fr_1fr]">
+        <h1 class="text-2xl font-bold 2xl:text-3xl">Projetos</h1>
+        <p class="text-[12px] text-slate-600 dark:text-slate-400">6 Projetos em andamento</p>
+        <div class="grid grid-cols-1 gap-4 mt-6 lg:grid-cols-2 xl:grid-cols-[1.3fr_1fr_1fr] 2xl:gap-6">
           <div
             class="flex flex-col gap-4 bg-zinc-300 border border-zinc-400/25 dark:border-slate-600 dark:bg-slate-700 px-4 py-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1 lg:col-span-2 xl:col-span-1 xl:row-span-2">
             <div
@@ -252,7 +313,13 @@
                 de projetos e tarefas,
                 com gráficos e indicadores em tempo real, adaptada para computador, tablet e celular.</p>
               <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
-                <p class="text-base">Felippe Tuma</p>
+                <div class="flex items-center justify-center text-center gap-2">
+                  <div
+                    class="flex size-9 shrink-0 items-center justify-center rounded bg-techflow-blue text-sm font-semibold text-slate-200">
+                    FT
+                  </div>
+                  <p class="text-base">Felippe Tuma</p>
+                </div>
                 <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
                   <p
                     class="flex text-[12px] font-bold items-center gap-2 text-error bg-error/25 px-3 py-0.5 rounded-3xl">
@@ -304,7 +371,13 @@
                 projetos, com etiqueta
                 e cor própria para identificar as demandas de análise, relatórios e dashboards.</p>
               <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
-                <p class="text-base">Felipe Motta</p>
+                <div class="flex items-center justify-center text-center gap-2">
+                  <div
+                    class="flex size-9 shrink-0 items-center justify-center rounded bg-violet text-sm font-semibold text-slate-200">
+                    FM
+                  </div>
+                  <p class="text-base">Felipe Motta</p>
+                </div>
                 <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
                   <p
                     class="flex text-[12px] items-center gap-2 text-sucess font-bold bg-sucess/25 px-3 py-0.5 rounded-3xl">
@@ -344,7 +417,13 @@
                 logotipo, paleta de
                 cores e versões para fundos claros e escuros.</p>
               <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
-                <p class="text-base">Arthur Nepomuceno</p>
+                <div class="flex items-center justify-center text-center gap-2">
+                  <div
+                    class="flex size-9 shrink-0 items-center justify-center rounded bg-pink-500 text-sm font-semibold text-slate-200">
+                    AN
+                  </div>
+                  <p class="text-base">Arthur Nepomuceno</p>
+                </div>
                 <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
                   <p
                     class="flex text-[12px] items-center gap-2 text-attention font-bold bg-attention/25 px-3 py-0.5 rounded-3xl">
@@ -384,7 +463,13 @@
                 domínio, certificado
                 HTTPS, deploy automatizado e monitoramento da disponibilidade do ambiente de produção.</p>
               <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
-                <p class="text-base">Felippe Tuma</p>
+                <div class="flex items-center justify-center text-center gap-2">
+                  <div
+                    class="flex size-9 shrink-0 items-center justify-center rounded bg-techflow-blue text-sm font-semibold text-slate-200">
+                    FT
+                  </div>
+                  <p class="text-base">Felippe Tuma</p>
+                </div>
                 <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
                   <p
                     class="flex text-[12px] items-center gap-2 text-error font-bold bg-error/25 px-3 py-0.5 rounded-3xl">
@@ -412,7 +497,7 @@
               </div>
             </div>
           </div>
-          <div class="col-span-full grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+          <div class="col-span-full grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3 2xl:gap-6">
             <div
               class="flex flex-col gap-4 bg-zinc-300 border border-zinc-400/25 dark:border-slate-600 dark:bg-slate-700 px-4 py-6 rounded-xl shadow transition-transform duration-300 ease-in-out hover:-translate-y-1">
               <div
@@ -424,7 +509,13 @@
                 <p class="text-sm text-slate-800/65 dark:text-slate-200/75">Planejamento da campanha de divulgação do
                   lançamento, com peças para redes sociais, e-mail marketing e página de captação de leads.</p>
                 <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
-                  <p class="text-base">Arthur Nepomuceno</p>
+                  <div class="flex items-center justify-center text-center gap-2">
+                    <div
+                      class="flex size-9 shrink-0 items-center justify-center rounded bg-pink-500 text-sm font-semibold text-slate-200">
+                      AN
+                    </div>
+                    <p class="text-base">Arthur Nepomuceno</p>
+                  </div>
                   <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
                     <p
                       class="flex text-[12px] items-center gap-2 text-error font-bold bg-error/25 px-3 py-0.5 rounded-3xl">
@@ -464,7 +555,13 @@
                 <p class="text-sm text-slate-800/65 dark:text-slate-200/75">Desenvolvimento da API REST para cadastro,
                   listagem e atualização de projetos e tarefas, com autenticação e documentação dos endpoints.</p>
                 <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
-                  <p class="text-base">Felipe Motta</p>
+                  <div class="flex items-center justify-center text-center gap-2">
+                    <div
+                      class="flex size-9 shrink-0 items-center justify-center rounded bg-violet text-sm font-semibold text-slate-200">
+                      FM
+                    </div>
+                    <p class="text-base">Felipe Motta</p>
+                  </div>
                   <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
                     <p
                       class="flex text-[12px] items-center gap-2 text-attention font-bold bg-attention/25 px-3 py-0.5 rounded-3xl">
@@ -504,7 +601,13 @@
                 <p class="text-sm text-slate-800/65 dark:text-slate-200/75">Consolidação dos indicadores mensais de
                   projetos concluídos, tarefas pendentes e produtividade da equipe em relatórios exportáveis.</p>
                 <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mt-4">
-                  <p class="text-base">Felippe Tuma</p>
+                  <div class="flex items-center justify-center text-center gap-2">
+                    <div
+                      class="flex size-9 shrink-0 items-center justify-center rounded bg-techflow-blue text-sm font-semibold text-slate-200">
+                      FT
+                    </div>
+                    <p class="text-base">Felippe Tuma</p>
+                  </div>
                   <div class="flex shrink-0 items-center gap-4 whitespace-nowrap">
                     <p
                       class="flex text-[12px] items-center gap-2 text-sucess font-bold bg-sucess/25 px-3 py-0.5 rounded-3xl">
@@ -559,16 +662,16 @@
       <form id="formProjeto" novalidate class="flex flex-col gap-4">
         <label class="flex flex-col gap-1"><span class="text-base font-medium">Nome do projeto</span>
           <input type="text" name="nome" required
-            class="select-text rounded-xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 outline-none dark:border-slate-600 dark:bg-slate-900/60">
+            class="select-text rounded-xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 dark:border-slate-600 dark:bg-slate-900/60 focus:outline-none focus:ring-2 focus:ring-techflow-blue/60 dark:focus:ring-techflow-blueSky/60">
         </label>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <label class="flex flex-col gap-2"><span class="font-medium text-base">Prazo</span>
             <input type="date" name="prazo" required
-              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out scheme-light dark:scheme-dark dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out scheme-light dark:scheme-dark dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-techflow-blue/60 dark:focus:ring-techflow-blueSky/60">
           </label>
           <label class="flex flex-col gap-2"><span class="font-medium text-base">Prioridade</span>
             <select name="prioridade" required
-              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-techflow-blue/60 dark:focus:ring-techflow-blueSky/60">
               <option value="">Selecione</option>
               <option value="baixo">Baixa</option>
               <option value="media">Media</option>
@@ -577,11 +680,11 @@
           </label>
           <label class="flex flex-col gap-2"><span class="font-medium text-base">Responsável</span>
             <input type="text" name="responsavel" placeholder="Nome e Sobrenome" required
-              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-techflow-blue/60 dark:focus:ring-techflow-blueSky/60">
           </label>
           <label class="flex flex-col gap-2"><span class="font-medium text-base">Categoria</span>
             <select name="categoria" required
-              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400">
+              class="select-text h-12 w-full rounded-2xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 text-slate-600 transition-all duration-300 ease-in-out dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-techflow-blue/60 dark:focus:ring-techflow-blueSky/60">
               <option value="">Selecione</option>
               <option value="dev">Desenvolvimento</option>
               <option value="design">Design</option>
@@ -593,7 +696,7 @@
         </div>
         <label class="flex flex-col gap-2 text-sm font-medium"><span class="text-base font-medium">Descrição</span>
           <textarea name="descricao" rows="3" required
-            class="select-text rounded-xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 outline-none dark:border-slate-600 dark:bg-slate-900/60"></textarea>
+            class="select-text rounded-xl border border-slate-500 bg-slate-800/5 px-3 py-2.5 dark:border-slate-600 dark:bg-slate-900/60 focus:outline-none focus:ring-2 focus:ring-techflow-blue/60 dark:focus:ring-techflow-blueSky/60"></textarea>
         </label>
         <p id="formStatus" role="status" class="hidden rounded-xl border px-3 py-2 text-sm font-medium"></p>
         <div class="flex justify-end gap-2">
