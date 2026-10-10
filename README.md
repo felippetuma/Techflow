@@ -6,10 +6,10 @@ O **TechFlow** é uma projeto desenvolvido para o checkpoint 05 de **Front-End D
 
 Nesse projeto do **TechFlow** foi utilizando as seguintes tecnologias: 
 
-- Html
-- Tailwind CSS
-- JavaScript
-- Vite
+- Html: Estrutura dos elementos e conteúdo da página.
+- Tailwind CSS: Estilização, responsividade, estados visuais e temas.
+- JavaScript: Estilização, responsividade, estados visuais e temas.
+- Vite: Servidor de desenvolvimento e geração da versão de produção.
 
 ### Integrantes
 
